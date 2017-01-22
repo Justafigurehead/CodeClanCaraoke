@@ -8,21 +8,23 @@ class TestRooms < MiniTest::Test
 
   def setup
     # Songs
-    song_1 = Song.new("Blue Swede", "Hooked on a feeling")
-    song_2 = Song.new("Blur", "Song 2")
-    
-    songs = [song_1, song_2]
+    @song_1 = Song.new("Blue Swede", "Hooked on a feeling")
+    @song_2 = Song.new("Blur", "Song 2")
+    @song_3 = Song.new("Fake band", "With fake song")
+
+
+    @songs = [@song_1, @song_2]
     #Guests
-    connor = Guest.new("Connor", "Hooked on a feeling")
-    marlene = Guest.new("Marlene", "Peaches")
-    jack = Guest.new("Jack", "Song 2")
+    connor = Guest.new("Connor", "Hooked on a feeling", 100)
+    marlene = Guest.new("Marlene", "With fake song", 25) 
+    jack = Guest.new("Jack", "Song 2", 50)
 
     @waiting_guests = [connor, marlene, jack]
 
     # Rooms
  
-    @room_1 = Room.new(2,songs)
-    @room_2 = Room.new(1, songs)
+    @room_1 = Room.new(2,@songs)
+    @room_2 = Room.new(1, @songs)
 
   end
 
@@ -48,10 +50,19 @@ class TestRooms < MiniTest::Test
   
 
   def test_check_out_guests
-    guests = @room_1.checkin_guest(@waiting_guests)
-    print guests
-    assert_equal([], @room_1.check_out_guests(guests))
+   @room_1.checkin_guest(@waiting_guests)
+   
+    assert_equal([], @room_1.check_out_guests())
   end
 
-  
+#passed test
+
+  # def test_add_new_song
+  #   assert_equal(3, @room_2.add_song(@song_3))
+  # end
+
+  # def test_remove_a_song 
+  #   assert_equal(1, @room_1.remove_song(@songs))
+  # end
+
 end

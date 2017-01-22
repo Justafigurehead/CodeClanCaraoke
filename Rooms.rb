@@ -20,7 +20,18 @@ attr_reader :capacity, :playlist, :guests_checked_in
 
   end
 
-  def check_out_guests(guests_checking_out)
-     guests_checking_out.clear
+  def check_out_guests()
+     @guests_checked_in.clear
   end
+
+  def add_song(new_song)
+    updated_playlist = @playlist.push(new_song)
+    # return updated_playlist.size
+  end
+
+  def remove_song(song)
+     @playlist.pop(1)
+  end
+
+  
 end
