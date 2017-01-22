@@ -5,11 +5,12 @@ class Guest
   def initialize(name, fav_song, money)
     @name = name
     @fav_song = fav_song
-    @money
+    @money = money
   end
 
   def charge_fee
+    customer_money = @money
     return yield
   end
-  
+
 end

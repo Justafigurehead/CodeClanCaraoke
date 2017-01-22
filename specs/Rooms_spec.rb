@@ -48,7 +48,7 @@ class TestRooms < MiniTest::Test
   #   assert_equal([connor,marlene], @room_1.checkin_guest(@waiting_guests,@room_1.capacity))
   # end
   
-
+#- difficult as you will want to make sure you check in all the guests, not just the same two. 
   def test_check_out_guests
    @room_1.checkin_guest(@waiting_guests)
    
