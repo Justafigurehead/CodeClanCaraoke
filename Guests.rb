@@ -8,8 +8,8 @@ class Guest
     @money = money
   end
 
-  def charge_fee
-    customer_money = @money
+  def charge_fee()
+
     return yield
   end
 
